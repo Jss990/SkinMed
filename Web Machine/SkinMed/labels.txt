@@ -1,0 +1,8 @@
+0 Acne
+1 Bullous
+2 Cancer de Piel
+3 Lichen
+4 Vasculitis
+5 Berrugas
+6 Keratosis
+7 Eczema
