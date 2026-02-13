@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkinMed - Iniciar Sesión</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="pantalla-fondo">
+        <div class="login-window">
+            
+            <div class="window-header">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+
+            <div class="window-content">
+                
+                <div class="left-side" style="background-image: url('{{ url_for('static', filename='img/login_bg.png') }}');">
+                    </div>
+
+                <div class="right-side">
+                    <div class="form-container">
+                        <h1 class="brand-title">SkinMed</h1>
+                        <form action="{{ url_for('login.login') }}" method="POST">
+
+                        <form action="#" method="POST">
+                            
+                            <div class="input-group">
+                                <i class="fa-regular fa-envelope input-icon"></i>
+                                <input type="text" name="username" placeholder="Username" required>
+                            </div>
+
+                            <div class="input-group">
+                                <i class="fa-solid fa-lock input-icon"></i>
+                                <input type="password" id="password" name="password" placeholder="Contraseña" required>
+                                <i class="fa-solid fa-eye-slash toggle-password" id="togglePassword" onclick="togglePass()"></i>
+                            </div>
+
+                            <div class="btn-container">
+                                <button type="submit" class="btn-login">Iniciar sesion</button>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function togglePass() {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.getElementById('togglePassword');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            }
+        }
+    </script>
+</body>
+</html>
