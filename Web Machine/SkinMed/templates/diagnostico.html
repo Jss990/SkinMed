@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkinMed - Diagnóstico</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/diagnostico.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="main-container">
+        <h1 class="page-title">SkinMed <span class="subtitle">| Análisis Dermatológico</span></h1>
+
+        <div class="dashboard">
+            
+            <div class="upload-panel">
+                <form action="{{ url_for('Redirections.machineIa') }}" method="POST" enctype="multipart/form-data">
+                    
+                    <label class="upload-box">
+                        <i class="fa-solid fa-cloud-arrow-up icon-upload"></i>
+                        <span>Elige una imagen de tus archivos<br>o arrástrala aquí</span>
+                        <input type="file" name="imagen_piel" accept="image/*" required id="file-input">
+                    </label>
+
+                    <button type="submit" class="btn-analizar">Analizar Imagen</button>
+                </form>
+
+                {% if nombre_imagen %}
+                <div class="preview-box">
+                    <h3>Imagen a analizar:</h3>
+                    <img src="{{ url_for('static', filename='uploads/' + nombre_imagen) }}" alt="Piel a analizar">
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="results-panel">
+                <h2 class="output-title">Output <i class="fa-solid fa-arrow-down"></i></h2>
+                
+                {% if resultados %}
+                    <div class="bars-container">
+                        {% for item in resultados %}
+                        <div class="result-row">
+                            <span class="class-name">{{ item.enfermedad }}</span>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width: {{ item.confianza }}%;">
+                                    <span class="percentage">{{ item.confianza }}%</span>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="recommendation-box">
+                        <h3><i class="fa-solid fa-stethoscope"></i> Recomendación Médica</h3>
+                        <p>{{ recomendacion }}</p>
+                    </div>
+
+                {% else %}
+                    <div class="empty-state">
+                        <p>Sube una imagen para ver los resultados aquí.</p>
+                    </div>
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

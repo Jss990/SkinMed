@@ -1,0 +1,165 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+.main-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.page-title {
+    color: #1a365d;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.subtitle {
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.dashboard {
+    display: flex;
+    gap: 30px;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* --- PANEL IZQUIERDO --- */
+.upload-panel, .results-panel {
+    flex: 1; /* Mitad y mitad */
+}
+
+.upload-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #e8f0fe; /* Azul claro estilo Google/Teachable */
+    color: #1967d2;
+    border: 2px dashed #a0c2f9;
+    border-radius: 8px;
+    padding: 40px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.upload-box:hover {
+    background-color: #d2e3fc;
+    border-color: #1967d2;
+}
+
+.icon-upload {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* Ocultar el input real porque es feo */
+.upload-box input[type="file"] {
+    display: none; 
+}
+
+.btn-analizar {
+    width: 100%;
+    padding: 12px;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-analizar:hover {
+    background-color: #1557b0;
+}
+
+.preview-box {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.preview-box img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* --- PANEL DERECHO (BARRAS) --- */
+.output-title {
+    font-size: 1.2rem;
+    color: #5f6368;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+.result-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.class-name {
+    width: 120px; /* Ancho fijo para alinear las barras */
+    font-weight: 600;
+    color: #e67c22; /* Color naranja de tu captura */
+}
+
+.progress-bar-bg {
+    flex-grow: 1;
+    background-color: #fcece3; /* Fondo clarito de la barra */
+    height: 30px;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar-fill {
+    background-color: #f6b288; /* Color lleno de la barra */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: width 0.5s ease-in-out;
+}
+
+.percentage {
+    color: white;
+    font-weight: bold;
+    font-size: 0.85rem;
+    padding-left: 10px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* --- RECOMENDACIONES --- */
+.recommendation-box {
+    margin-top: 30px;
+    background-color: #e8f0fe;
+    border-left: 5px solid #1a73e8;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.recommendation-box h3 {
+    margin-top: 0;
+    color: #1a73e8;
+    font-size: 1.1rem;
+}
+
+.empty-state {
+    color: #999;
+    text-align: center;
+    padding: 50px 0;
+}
